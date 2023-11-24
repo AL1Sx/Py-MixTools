@@ -169,6 +169,7 @@ if rlaun =='CHN':
                         print("v9更新内容: 新增检查字符占用的字节程序,Base64转文字的报错显示改进了一下,结束语算法更新(冥兮)")
                         print("v10更新内容:操作方式更符合逻辑(灰尘),中英文分发版本(冥兮)")
                         print("v11更新内容:中英文版本合并,增加百度搜索(灰尘),闲着没事增加了谷歌搜索(冥兮)")
+                        print("v11.1更新内容:增加了这行字(冥兮)")
                     elif Menu == 'i' or Menu=='I':
                         print("主创:冥兮")
                         print("space.bilibili.com/352127718")
@@ -346,3 +347,4 @@ elif rlaun == 'ENG':
        #判定
         else:
             print("Unknown command!")
+
