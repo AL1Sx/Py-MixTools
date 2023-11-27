@@ -88,7 +88,7 @@ while True:
 #关于
     elif 'A' in insert or 'a' in insert:
         print('关注冥兮谢谢喵')
-        url = '114514.com'
+        url = 'https://space.bilibili.com/352127718'
         
 #退出
     elif 'Q' in insert or 'q' in insert:
