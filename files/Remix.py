@@ -87,7 +87,7 @@ while True:
 
 #关于
     elif 'A' in insert or 'a' in insert:
-        print('关注冥兮谢谢喵')
+        print('关注冥兮谢谢喵! 按[A]自动跳转 [任意]返回')
         url = 'https://space.bilibili.com/352127718'
         
 #退出
