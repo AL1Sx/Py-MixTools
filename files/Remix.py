@@ -2,13 +2,12 @@
 # Developers : Nekona;HuiChen
 # Time       : 2023-11-29
 # File Name  : Remix.py
-# Develop Tool : Python
+# Develop Tool : Python 3.12.0 64-bit
 import webbrowser
 import time
 import base64
-#import base64
 
-print("RemixTools\n版本号:V1.0\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.0.1\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 
 #def
 #搜索功能头
@@ -26,7 +25,7 @@ def search_engine(search_engine_name, search_engine_url):
 
 #头
 while True:
-    time.sleep(1)
+    time.sleep(0)
     insert = input("主页>>>")
     if 'H' in insert or 'h' in insert:
         print('---')
@@ -43,13 +42,13 @@ while True:
 #搜索功能    
     elif 'S' in insert or 's' in insert:
         print('请选择你所想要的搜索引擎:\n[B]必应 [G]谷歌 [任意]返回 [QUIT]在搜索功能内退出\n---')
-        search = input("选择>>>")
+        choice = input("选择>>>")
         print('')
         while True:
-            if 'B' in search or 'b' in search:
+            if 'B' in choice or 'b' in choice:
                 if not search_engine('必应', 'https://www.bing.com/search?q='):
                     break
-            elif 'G' in search or 'g' in search:
+            elif 'G' in choice or 'g' in choice:
                 if not search_engine('谷歌', 'https://www.google.com/search?q='):
                     break
 
@@ -57,22 +56,22 @@ while True:
     elif 'E' in insert or 'e' in insert:
         print('请选择你所想要的字符转换功能:')
         print('[B]Base64转换 [M]检查多个字符 [任意]返回 [QUIT]在功能内退出')
-        exchange = input('选择>>>')
+        choice = input('选择>>>')
         print('---')
         while True:
-            if 'B' in exchange or 'b' in exchange:
+            if 'B' in choice or 'b' in choice:
                 text = input('输入文本>>>')
                 print('---')
-                if 'QUIT' in text:
+                if text == 'QUIT':
                     print('已退出转换功能.\n---')
                     break
                 else:
-                    encoded_text = base64.b64encode(text.encode('utf-8')).decode('utf-8')
-                    print('转换后的Base64编码:', encoded_text,'\n---')
-            elif 'M' in exchange or 'm' in exchange:
+                    encoded = base64.b64encode(text.encode('utf-8')).decode('utf-8')
+                    print('转换后的Base64编码:', encoded,'\n---')
+            elif 'M' in choice or 'm' in choice:
                 words = input('输入字符>>>')
                 print('---')
-                if 'QUIT' in words:
+                if words == 'QUIT':
                     print('已退出转换功能.\n---')
                     break
                 else:
@@ -87,8 +86,8 @@ while True:
                 break
 
 #校验
-    elif 'M' in insert or 'm' in insert:
-        print('没做呢')
+#    elif 'M' in insert or 'm' in insert:
+#        print('没做呢')
 
 #关于
     elif 'A' in insert or 'a' in insert:
@@ -110,10 +109,11 @@ while True:
         
 #退出
     elif 'Q' in insert or 'q' in insert:
-        print('即将在2秒后退出,[Enter]取消退出')
-        if input() == '':
-            print('已取消退出/n---')
-            continue
+        print('即将在2秒后退出,[Enter]取消退出(暂时禁用)')
+        #if input().strip() == '':
+        #    print('已取消退出\n---')
+        #    continue
+        #else:
         time.sleep(2)
         break
 
