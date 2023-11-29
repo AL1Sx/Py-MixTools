@@ -7,10 +7,7 @@ import webbrowser
 import time
 #import base64
 
-print("RemixTools")
-print("版本号:Alpha1")
-print("键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.")
-print("---")
+print("RemixTools\n版本号:Alpha2\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 
 #头
 while True:
@@ -19,18 +16,17 @@ while True:
     if 'H' in insert or 'h' in insert:
         print('---')
         print('[S]使用搜索引擎搜索.')
-        print('[E]使用简单字符工具')
-        print('[H]再次弹出帮助菜单')
-        print('[A]关于本程序')
-        print('[Q]退出本程序')
+        print('[E]使用简单字符工具.')
+        print('[H]再次弹出帮助菜单.')
+        print('[A]关于本程序.')
+        print('[Q]退出本程序.')
         print('---')
     
 
     
 #搜索功能    
     elif 'S' in insert or 's' in insert:
-        print('请选择你所想要的搜索引擎:')
-        print('[B]必应 [G]谷歌 [任意]返回 [QUIT]在搜索功能内退出')
+        print('请选择你所想要的搜索引擎:\n[B]必应 [G]谷歌 [任意]返回 [QUIT]在搜索功能内退出\n---')
         search = input("选择>>>")
         print('')
         while True:
@@ -87,8 +83,21 @@ while True:
 
 #关于
     elif 'A' in insert or 'a' in insert:
-        print('关注冥兮谢谢喵! 按[A]自动跳转 [任意]返回')
+        print('关注冥兮谢谢喵!\n[A]自动跳转 [U]更新日志 [任意]返回')
         url = 'https://space.bilibili.com/352127718'
+        aboutin = input("选择>>>")
+        print('---')
+        while True:
+            if 'A' in aboutin or 'a' in aboutin:
+                webbrowser.open(url, new=0, autoraise=True)
+                print('Ciallo~')
+                break
+            if 'U' in aboutin or 'u' in aboutin:
+                print('暂无')
+                break
+            else:
+                print('返回上级菜单\n---')
+                break
         
 #退出
     elif 'Q' in insert or 'q' in insert:
