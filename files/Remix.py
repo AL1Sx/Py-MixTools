@@ -1,13 +1,13 @@
 # _*_ coding : UTF-8;CRLF
 # Developers : Nekona;HuiChen
-# Time       : 2023-11-29
+# Time       : 2023-11-30
 # File Name  : Remix.py
 # Develop Tool : Python 3.12.0 64-bit
 import webbrowser
 import time
 import base64
 
-print("RemixTools\n版本号:V1.0.1\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.0.2\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 
 #def
 #搜索功能头
@@ -91,17 +91,14 @@ while True:
 
 #关于
     elif 'A' in insert or 'a' in insert:
-        print('关注冥兮谢谢喵!\n[A]自动跳转 [U]更新日志 [任意]返回')
+        print('关注冥兮谢谢喵!\n[A]自动跳转 [任意]返回')
         url = 'https://space.bilibili.com/352127718'
-        aboutin = input("选择>>>")
+        choice = input("选择>>>")
         print('---')
         while True:
-            if 'A' in aboutin or 'a' in aboutin:
+            if 'A' in choice or 'a' in choice:
                 webbrowser.open(url, new=0, autoraise=True)
                 print('Ciallo~')
-                break
-            if 'U' in aboutin or 'u' in aboutin:
-                print('暂无')
                 break
             else:
                 print('返回上级菜单\n---')
