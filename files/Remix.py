@@ -1,13 +1,15 @@
 # _*_ coding : UTF-8;CRLF
 # Developers : Nekona;HuiChen
-# Time       : 2023-11-30
+# Time       : 2023-12-01
 # File Name  : Remix.py
 # Develop Tool : Python 3.12.0 64-bit
 import webbrowser
 import time
 import base64
+import hashlib
+import os
 
-print("RemixTools\n版本号:V1.0.2\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.1.0\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 
 #def
 #搜索功能头
@@ -23,6 +25,18 @@ def search_engine(search_engine_name, search_engine_url):
         webbrowser.open(url, new=0, autoraise=True)
         return True
 
+#MD5头
+def md5_check(file_path, md5_value):
+    with open(file_path, 'rb') as f:
+        file_md5 = hashlib.md5(f.read()).hexdigest()
+    if file_md5 == md5_value:
+        print('成功')
+    else:
+        print('失败')
+        print('MD5:', file_md5)
+
+
+
 #头
 while True:
     time.sleep(0)
@@ -31,13 +45,11 @@ while True:
         print('---')
         print('[S]简单搜索引擎搜索.')
         print('[E]使用简单字符工具.')
-        #print('[M]使用简单校验工具.')
+        print('[M]使用简单校验工具.')
         print('[H]再次弹出帮助菜单.')
         print('[A]关于本程序.')
         print('[Q]退出本程序.')
         print('---')
-    
-    
     
 #搜索功能    
     elif 'S' in insert or 's' in insert:
@@ -86,8 +98,27 @@ while True:
                 break
 
 #校验
-#    elif 'M' in insert or 'm' in insert:
-#        print('没做呢')
+    elif 'M' in insert or 'm' in insert:#TODO 增加SHA-1验证
+        print('请选择你需要的校验功能:')
+        print('[D]MD5校验 [任意]返回 [QUIT]在功能内退出')
+        choice = input('选择>>>')
+        print('---')
+        while True:
+            if 'D' in choice or 'd' in choice:
+                path = input('输入文件路径>>>')
+                if path == 'QUIT':
+                    print('已退出\n---')
+                    break
+                elif not os.path.exists(path):
+                    print(f'文件 {path} 不存在.')
+                    continue
+                else:
+                    md5_input = (input('输入MD5>>>'))
+                    md5_check(path, md5_input)
+            else:
+                print('返回上级菜单\n---')
+                break
+
 
 #关于
     elif 'A' in insert or 'a' in insert:
