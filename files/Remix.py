@@ -1,41 +1,17 @@
 # _*_ coding : UTF-8;CRLF
 # Developers : Nekona;HuiChen
-# Time       : 2023-12-01
+# Time       : 2023-12-03
 # File Name  : Remix.py
 # Develop Tool : Python 3.12.0 64-bit
 import webbrowser
 import time
 import base64
-import hashlib
 import os
+import sys
 
-print("RemixTools\n版本号:V1.1.0\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
-
-#def
-#搜索功能头
-def search_engine(search_engine_name, search_engine_url):
-    word = input(f'{search_engine_name}搜索>>>')
-    if 'QUIT' in word:
-        print('已退出搜索功能.')
-        print('')
-        return False
-    else:
-        print('搜索:' + word )
-        url = search_engine_url + word
-        webbrowser.open(url, new=0, autoraise=True)
-        return True
-
-#MD5头
-def md5_check(file_path, md5_value):
-    with open(file_path, 'rb') as f:
-        file_md5 = hashlib.md5(f.read()).hexdigest()
-    if file_md5 == md5_value:
-        print('成功')
-    else:
-        print('失败')
-        print('MD5:', file_md5)
-
-
+print("RemixTools\n版本号:V1.1.1\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Remix_functions'))
+from Remix_functions import search_engine, md5_check, sha1_check
 
 #头
 while True:
@@ -118,7 +94,6 @@ while True:
             else:
                 print('返回上级菜单\n---')
                 break
-
 
 #关于
     elif 'A' in insert or 'a' in insert:
