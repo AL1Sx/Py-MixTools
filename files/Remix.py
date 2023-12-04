@@ -9,16 +9,16 @@ import base64
 import os
 import sys
 
-print("RemixTools\n版本号:V1.1.1\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.1.2\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 sys.path.append(os.path.join(os.path.dirname(__file__), 'Remix_functions'))
-from Remix_functions import search_engine, md5_check, sha1_check
+from Remix_functions import search_engine, file_hash_check
 
 #头
 while True:
     time.sleep(0)
     insert = input("主页>>>")
     if 'H' in insert or 'h' in insert:
-        print('---')
+        print('---')#TODO 比如说解压缩等,系统处理工具
         print('[S]简单搜索引擎搜索.')
         print('[E]使用简单字符工具.')
         print('[M]使用简单校验工具.')
@@ -73,28 +73,26 @@ while True:
                 print('返回上级菜单\n---')
                 break
 
-#校验
-    elif 'M' in insert or 'm' in insert:#TODO 增加SHA-1验证
+#校验 #TODO 字符验证
+    elif 'M' in insert or 'm' in insert:
         print('请选择你需要的校验功能:')
-        print('[D]MD5校验 [任意]返回 [QUIT]在功能内退出')
+        print('[D]文件校验 [任意]返回 [QUIT]在功能内退出')
         choice = input('选择>>>')
         print('---')
         while True:
             if 'D' in choice or 'd' in choice:
-                path = input('输入文件路径>>>')
-                if path == 'QUIT':
-                    print('已退出\n---')
+                hash_check_input = input('请输入需要的加密方式>>>')
+                if hash_check_input == 'QUIT':
+                    print('已退出校验功能.\n---')
                     break
-                elif not os.path.exists(path):
-                    print(f'文件 {path} 不存在.')
-                    continue
-                else:
-                    md5_input = (input('输入MD5>>>'))
-                    md5_check(path, md5_input)
+                path = input('请输入文件路径>>>')
+                file_hash_check(path, hash_check_input)
+                break
             else:
                 print('返回上级菜单\n---')
                 break
 
+        
 #关于
     elif 'A' in insert or 'a' in insert:
         print('关注冥兮谢谢喵!\n[A]自动跳转 [任意]返回')

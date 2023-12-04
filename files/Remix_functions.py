@@ -4,13 +4,10 @@
 # File Name  : Remix_functions.py
 # Develop Tool : Python 3.12.0 64-bit
 import webbrowser
-import time
-import base64
 import hashlib
-import os
+import webbrowser
+import hashlib
 
-#def
-#搜索功能头
 def search_engine(search_engine_name, search_engine_url):
     word = input(f'{search_engine_name}搜索>>>')
     if 'QUIT' in word:
@@ -22,21 +19,25 @@ def search_engine(search_engine_name, search_engine_url):
         url = search_engine_url + word
         webbrowser.open(url, new=0, autoraise=True)
         return True
-#MD5头
-def md5_check(file_path, md5_value):
+
+def file_hash_check(file_path, hash_type):
     with open(file_path, 'rb') as f:
-        file_md5 = hashlib.md5(f.read()).hexdigest()
-    if file_md5 == md5_value:
-        print('成功')
-    else:
-        print('失败')
-        print('MD5:', file_md5)
-#SHA-1头
-def sha1_check(file_path, sha1_value):
-    with open(file_path, 'rb') as f:
-        file_sha1 = hashlib.sha1(f.read()).hexdigest()
-    if file_sha1 == sha1_value:
-        print('成功')
-    else:
-        print('失败')
-        print('SHA-1', file_sha1)
+        if hash_type.upper() == 'MD5':
+            file_hash = hashlib.md5(f.read()).hexdigest()
+        elif hash_type.upper() == 'SHA1':
+            file_hash = hashlib.sha1(f.read()).hexdigest()
+        elif hash_type.upper() == 'SHA224':
+            file_hash = hashlib.sha224(f.read()).hexdigest()
+        elif hash_type.upper() == 'SHA256':
+            file_hash = hashlib.sha256(f.read()).hexdigest()
+        elif hash_type.upper() == 'SHA384':
+            file_hash = hashlib.sha384(f.read()).hexdigest()
+        elif hash_type.upper() == 'SHA512':
+            file_hash = hashlib.sha384(f.read()).hexdigest()
+        elif hash_type == 'sha512' or 'SHA512':
+            file_hash = hashlib.sha512(f.read()).hexdigest()
+        else:
+            print('不支持或无效的加密方式.')
+            return
+        print('该文件的' + hash_type +'值为:')
+        print(file_hash)
