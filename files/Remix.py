@@ -4,9 +4,9 @@ import base64
 import os
 import sys
 
-print("RemixTools\n版本号:V1.1.3\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.1.3a\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 sys.path.append(os.path.join(os.path.dirname(__file__), 'Remix_functions'))
-from Remix_functions import search_engine, file_hash_check
+from Remix_functions import search_engine, file_hash_check, nano_hash_check
 
 #头
 while True:
@@ -83,11 +83,14 @@ while True:
                 path = input('请输入文件路径>>>')
                 file_hash_check(path, hash_check_input)
                 break
-            if choice.lower == 'f':
+            if 'F' in choice or 'f' in choice:
                 hash_check_input = input('请输入需要的加密方式>>>')
                 if hash_check_input == 'QUIT':
                     print('已退出校验功能.\n---')
                     break
+                path = input('请输入字符>>>')
+                nano_hash_check(path, hash_check_input)
+                break
             else:
                 print('返回上级菜单\n---')
                 break
