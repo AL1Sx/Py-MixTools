@@ -1,10 +1,3 @@
-# _*_ coding : UTF-8;CRLF
-# Developers : Nekona;HuiChen
-# Time       : 2023-12-03
-# File Name  : Remix_functions.py
-# Develop Tool : Python 3.12.0 64-bit
-import webbrowser
-import hashlib
 import webbrowser
 import hashlib
 
@@ -34,10 +27,27 @@ def file_hash_check(file_path, hash_type):
             file_hash = hashlib.sha384(f.read()).hexdigest()
         elif hash_type.upper() == 'SHA512':
             file_hash = hashlib.sha384(f.read()).hexdigest()
-        elif hash_type == 'sha512' or 'SHA512':
-            file_hash = hashlib.sha512(f.read()).hexdigest()
         else:
             print('不支持或无效的加密方式.')
             return
         print('该文件的' + hash_type +'值为:')
         print(file_hash)
+
+def nano_hash_check(nano_check, hash_type):
+    if hash_type.lower() == 'md5':
+        nano_hash = hashlib.md5(nano_check.encode()).hexdigest()
+    elif hash_type.lower() == 'sha1':
+        nano_hash = hashlib.sha1(nano_check.encode()).hexdigest()
+    elif hash_type.lower() == 'sha224':
+        nano_hash = hashlib.sha224(nano_check.encode()).hexdigest()
+    elif hash_type.lower() == 'sha256':
+        nano_hash = hashlib.sha256(nano_check.encode()).hexdigest()
+    elif hash_type.lower() == 'sha384':
+        nano_hash = hashlib.sha384(nano_check.encode()).hexdigest()
+    elif hash_type.lower() == 'sha512':
+        nano_hash = hashlib.sha512(nano_check.encode()).hexdigest()
+    else:
+        print('不支持或无效的加密方式.')
+        return
+    print('该文件的' + hash_type +'值为:')
+    print(nano_hash)    

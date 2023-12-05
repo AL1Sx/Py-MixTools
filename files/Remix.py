@@ -1,15 +1,10 @@
-# _*_ coding : UTF-8;CRLF
-# Developers : Nekona;HuiChen
-# Time       : 2023-12-03
-# File Name  : Remix.py
-# Develop Tool : Python 3.12.0 64-bit
 import webbrowser
 import time
 import base64
 import os
 import sys
 
-print("RemixTools\n版本号:V1.1.2\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.1.3\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 sys.path.append(os.path.join(os.path.dirname(__file__), 'Remix_functions'))
 from Remix_functions import search_engine, file_hash_check
 
@@ -76,7 +71,7 @@ while True:
 #校验 #TODO 字符验证
     elif 'M' in insert or 'm' in insert:
         print('请选择你需要的校验功能:')
-        print('[D]文件校验 [任意]返回 [QUIT]在功能内退出')
+        print('[D]文件校验 [F]字符校验 [任意]返回 [QUIT]在功能内退出')
         choice = input('选择>>>')
         print('---')
         while True:
@@ -88,6 +83,11 @@ while True:
                 path = input('请输入文件路径>>>')
                 file_hash_check(path, hash_check_input)
                 break
+            if choice.lower == 'f':
+                hash_check_input = input('请输入需要的加密方式>>>')
+                if hash_check_input == 'QUIT':
+                    print('已退出校验功能.\n---')
+                    break
             else:
                 print('返回上级菜单\n---')
                 break
