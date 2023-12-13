@@ -3,10 +3,11 @@ import time
 import base64
 import os
 import sys
+import threading
 
-print("RemixTools\n版本号:V1.1.3a\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
+print("RemixTools\n版本号:V1.1.4b\n键入[H]以获取命令的帮助,请在出现[>>>]后再键入相关命令.\n---")
 sys.path.append(os.path.join(os.path.dirname(__file__), 'Remix_functions'))
-from Remix_functions import search_engine, file_hash_check, nano_hash_check
+from Remix_functions import search_engine, file_hash_check, nano_hash_check, cancel_exit, add_to_history, print_history
 
 #头
 while True:
@@ -18,9 +19,9 @@ while True:
         print('[E]使用简单字符工具.')
         print('[M]使用简单校验工具.')
         print('[H]再次弹出帮助菜单.')
+        print('[P]本次使用历史记录.')
         print('[A]关于本程序.')
-        print('[Q]退出本程序.')
-        print('---')
+        print('[Q]退出本程序.\n---')
     
 #搜索功能    
     elif 'S' in insert or 's' in insert:
@@ -110,14 +111,20 @@ while True:
             else:
                 print('返回上级菜单\n---')
                 break
-        
+
+    elif 'P' in insert or 'p' in insert:
+        print_history()
+
 #退出
     elif 'Q' in insert or 'q' in insert:
-        print('即将在2秒后退出,[Enter]取消退出(暂时禁用)')
-        #if input().strip() == '':
-        #    print('已取消退出\n---')
+        print('即将在2秒后退出')
+        #t = threading.Thread(target=cancel_exit)
+        #t.start()
+        #time.sleep(2)
+        #if not t.is_alive():
         #    continue
         #else:
+        #    break
         time.sleep(2)
         break
 
